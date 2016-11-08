@@ -1,5 +1,15 @@
 function cardsController($scope){
     $scope.cardsCount=10;
+    $scope.cards = [
+        {user_name: "Sally"},
+        {user_name: "Bradley"}
+    ]
+    $scope.createCard = function(){
+        $scope.cards.push(
+            {user_name: $scope.userName},
+            {card_number: $scope.cardNumber}
+        );
+    }
 }
 
 

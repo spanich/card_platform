@@ -14,9 +14,10 @@
         <h1>Welcome to the Platform!</h1>
         <h2>Please Enter your information below</h2>
 
-        <form ng-submit="createCard">
+        <!-- createCard function also in controller -->
+        <form ng-submit="createCard()">
             User Name: <input type="text" placeholder="User Name" ng-model="userName"></input>
-            Card Number: <input type="text" placeholder="Card Number"></input>
+            Card Number: <input type="text" placeholder="Card Number" ng-model="cardNumber"></input>
             <button type="submit">Add Card</button>
         </form>
 
@@ -28,12 +29,14 @@
             <button type="submit">Submit</button>
         </form>
         <h2>There are currently {{cardsCount}} cards registered</h2>
-        <!-- <h2>Recent Activity</h2>
+        <h2>Recent Activity</h2>
             <ul>
+                <!-- cards is collection name, in js/controllers/cards-controller -->
                 <li ng-repeat="card in cards">
-                    {{card.user_name}}
+                    <!-- property of card, also in same controller -->
+                    {{card.user_name}} added Card Number {{card.card_number}}
                 </li>
-            </ul> -->
+            </ul>
     </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
