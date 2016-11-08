@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="cardApp">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <!--Platform View-->
+    <!--Controller comes from client/js/controllers/cards-controller-->
+    <div ng-controller="cardsController">
+        <h1>Welcome to the Platform!</h1>
+        <h2>Please Enter your information below</h2>
+
+        <form ng-submit="createCard">
+            User Name: <input type="text" placeholder="User Name" ng-model="userName"></input>
+            Card Number: <input type="text" placeholder="Card Number"></input>
+            <button type="submit">Add Card</button>
+        </form>
+
+        <h2>What would you like to do?</h2>
+        <form ng-submit="">
+            User Name: <input type="text" placeholder="User Name"></input>
+            Charge: <input type="text" placeholder="Charge Amount"></input>
+            Credit: <input type="text" placeholder="Credit Amount"></input>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>There are currently {{cardsCount}} cards registered</h2>
+        <!-- <h2>Recent Activity</h2>
+            <ul>
+                <li ng-repeat="card in cards">
+                    {{card.user_name}}
+                </li>
+            </ul> -->
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/controllers/cards-controller.js"></script>
+</body>
+</html>
