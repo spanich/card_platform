@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/client/views/index.html');
 });
+app.get('/styles.css', function(req, res){
+    res.sendFile(__dirname + '/client/views/styles.css');
+})
 // Any file requested fromm js will be returned statically
 app.use('/js', express.static(__dirname + '/client/js'));
 

@@ -1,7 +1,12 @@
-*{
-    background-color: red;
-    color: yellow;
+.card_action{
+    display: inline-block;
 }
-h1{
-    color: blue;
+#welcome{
+    text-align:center;
+}
+#new_user{
+    text-align: center;
+}
+#createCard{
+    display: inline-block;
 }

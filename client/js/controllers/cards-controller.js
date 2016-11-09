@@ -1,21 +1,25 @@
-function cardsController($scope){
-    $scope.cardsCount=10;
-    $scope.cards = [
-        {user_name: "Sally"},
-        {user_name: "Bradley"}
-    ]
-    $scope.createCard = function(){
-        $scope.cards.push(
-            {user_name: $scope.userName},
-            {card_number: $scope.cardNumber},
-            {card_balance: $scope.cardBalance="0"}
-        );
-    }
-    $scope.chargeCard = function(){
-        // match user to card
-        // set balance to balance-charge
-    }
-}
+app.controller('cardsController', ['$scope', '$resource',
+    function($scope, $resource){
+        $scope.cardsCount=10;
+        $scope.cards = [
+            {user_name: "Sally"},
+            {user_name: "Bradley"}
+        ]
+        $scope.createCard = function(){
+            $scope.cards.push(
+                {user_name: $scope.userName},
+                {card_number: $scope.cardNumber},
+                {card_balance: $scope.cardBalance="0"}
+            );
+        }
+        $scope.chargeCard = function(){
+            // match user to card
+            // set balance to balance-charge
+        }
+}]);
+
+
+
 
 
 

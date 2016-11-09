@@ -13,16 +13,21 @@
     <!--Platform View-->
     <!--Controller comes from client/js/controllers/cards-controller-->
     <div ng-controller="cardsController">
-        <h1>Welcome to the Platform!</h1>
-        <h2>Please Enter your information below</h2>
+        <div id="welcome">
+            <h1>Welcome to the Platform!</h1>
+        </div>
+        <div id="new_user">
+            <h2>Please enter your information below</h2>
 
-        <!-- createCard function also in controller -->
-        <form ng-submit="createCard()">
-            User Name: <input type="text" placeholder="User Name" ng-model="userName"></input>
-            Card Number: <input type="text" placeholder="Card Number" ng-model="cardNumber"></input>
-            <input type="hidden" name="balance" value="0" ng-model="cardBalance">
-            <button type="submit">Add Card</button>
-        </form>
+            <!-- createCard function also in controller -->
+            <form id="createCard" ng-submit="createCard()">
+                <p>User Name: <input type="text" placeholder="User Name" ng-model="userName"></input></p>
+                <p>Card Number: <input type="text" placeholder="Card Number" ng-model="cardNumber"></input></p>
+                <input type="hidden" name="balance" value="0" ng-model="cardBalance">
+                <button type="submit">Add Card</button>
+            </form>
+        </div>
+
 
         <div id="actions">
 
@@ -45,7 +50,7 @@
             </div> -->
         </div>
 
-        <h2>There are currently {{cardsCount}} cards registered</h2>
+        <!-- <h2>There are currently {{cardsCount}} cards registered</h2> -->
         <h2>Recent Activity</h2>
             <ul>
                 <!-- cards is collection name, in js/controllers/cards-controller -->
