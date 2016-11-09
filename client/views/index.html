@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="cardApp">
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"
 
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <!--Platform View-->
@@ -18,23 +20,38 @@
         <form ng-submit="createCard()">
             User Name: <input type="text" placeholder="User Name" ng-model="userName"></input>
             Card Number: <input type="text" placeholder="Card Number" ng-model="cardNumber"></input>
+            <input type="hidden" name="balance" value="0" ng-model="cardBalance">
             <button type="submit">Add Card</button>
         </form>
 
-        <h2>What would you like to do?</h2>
-        <form ng-submit="">
-            User Name: <input type="text" placeholder="User Name"></input>
-            Charge: <input type="text" placeholder="Charge Amount"></input>
-            Credit: <input type="text" placeholder="Credit Amount"></input>
-            <button type="submit">Submit</button>
-        </form>
+        <div id="actions">
+
+            <h2>What would you like to do?</h2>
+            <div class="card_action">
+                <h4>Charge Account</h4>
+                <form ng-submit="chargeCard()">
+                    User Name: <input type="text" placeholder="User Name"></input>
+                    Charge: <input type="text" placeholder="Charge Amount"></input>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <!-- <div class="card_action">
+                <h4>Credit Account</h4>
+                <form ng-submit="">
+                    User Name: <input type="text" placeholder="User Name"></input>
+                    Credit: <input type="text" placeholder="Credit Amount"></input>
+                    <button type="submit">Submit</button>
+                </form>
+            </div> -->
+        </div>
+
         <h2>There are currently {{cardsCount}} cards registered</h2>
         <h2>Recent Activity</h2>
             <ul>
                 <!-- cards is collection name, in js/controllers/cards-controller -->
                 <li ng-repeat="card in cards">
                     <!-- property of card, also in same controller -->
-                    {{card.user_name}} added Card Number {{card.card_number}}
+                        {{card.user_name}} added Card Number: {{card.card_number}}, with Balance: {{card.card_balance}}
                 </li>
             </ul>
     </div>
