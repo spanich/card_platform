@@ -8,26 +8,55 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <!--Platform View-->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Credit Platform</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <!--Controller comes from client/js/controllers/cards-controller-->
     <div ng-controller="cardsController">
         <div id="welcome">
-            <h1>Welcome to the Platform!</h1>
+            <h2>Welcome to the Platform!</h2>
         </div>
         <div id="new_user">
-            <h2>Please enter your information below</h2>
+            <h3>Please enter your information below</h3>
 
             <!-- createCard function also in controller -->
             <form id="createCard" ng-submit="createCard()">
-                <p>User Name: <input type="text" placeholder="User Name" ng-model="userName"></input></p>
-                <p>Card Number: <input type="text" placeholder="Card Number" ng-model="cardNumber"></input></p>
-                <input type="hidden" name="balance" value="0" ng-model="cardBalance">
-                <button type="submit">Add Card</button>
+              <div class="form-group">
+                <label for="user_name">User Name:</label>
+                <input type="text" class="form-control" placeholder="User Name" ng-model="userName">
+              </div>
+              <div class="form-group">
+                <label for="card_number">Card Number: :</label>
+                <input type="text" class="form-control" placeholder="Card Number" ng-model="cardNumber">
+              </div>
+              <div class="form-group">
+                <label for="card_limit">Card Limit: :</label>
+                <input type="text" class="form-control" placeholder="Card Limit" ng-model="cardLimit">
+              </div>
+              <input type="hidden" name="balance" value="0" ng-model="cardBalance">
+              <button type="submit" class="btn btn-default">Add Card</button>
             </form>
-        </div>
 
+        </div>
 
         <div id="actions">
 
@@ -35,8 +64,8 @@
             <div class="card_action">
                 <h4>Charge Account</h4>
                 <form ng-submit="chargeCard()">
-                    User Name: <input type="text" placeholder="User Name"></input>
-                    Charge: <input type="text" placeholder="Charge Amount"></input>
+                    User Name: <input type="text" placeholder="User Name" ng-model="userName"></input>
+                    Charge: <input type="text" placeholder="Charge Amount" ng-model="charge"></input>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -56,10 +85,11 @@
                 <!-- cards is collection name, in js/controllers/cards-controller -->
                 <li ng-repeat="card in cards">
                     <!-- property of card, also in same controller -->
-                        {{card.user_name}} added Card Number: {{card.card_number}}, with Balance: {{card.card_balance}}
+                        {{card.user_name}} added Card Number: {{card.card_number}}, with Balance: {{card.card_balance}} and Limit: {{card.card_limit}}
                 </li>
             </ul>
     </div>
+
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>

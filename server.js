@@ -25,6 +25,7 @@ app.use('/js', express.static(__dirname + '/client/js'));
 // REST API
 app.get('/api/cards', cardsController.list);
 app.post('/api/cards', cardsController.create);
+app.patch('/api/cards', cardsController.chargeCard);
 
 app.listen(3000, function(){
     console.log('Listening...');
